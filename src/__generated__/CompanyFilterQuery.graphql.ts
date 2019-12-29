@@ -1,4 +1,5 @@
 /* tslint:disable */
+/* @relayHash 915c7f6d403134af61ca2835c6fa1c7d */
 
 import { ConcreteRequest } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
@@ -147,7 +148,19 @@ return {
                     "plural": false,
                     "selections": [
                       (v0/*: any*/),
-                      (v1/*: any*/)
+                      (v1/*: any*/),
+                      {
+                        "kind": "ClientExtension",
+                        "selections": [
+                          {
+                            "kind": "ScalarField",
+                            "alias": null,
+                            "name": "isDeleted",
+                            "args": null,
+                            "storageKey": null
+                          }
+                        ]
+                      }
                     ]
                   }
                 ]

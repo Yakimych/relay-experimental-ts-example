@@ -16,6 +16,11 @@ const App: React.FC = () => {
           ...UserFilter_data
           ...UserList_data
         }
+        savedUserInfo {
+          userName
+          age
+        }
+        savedUserName
       }
     `,
     {}
@@ -24,7 +29,18 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <span>Selected user: </span>
+        {data.savedUserInfo ? (
+          <>
+            <span>savedUserInfo.name: {data.savedUserInfo.userName}</span>
+            <span>savedUserInfo.age: {data.savedUserInfo.age}</span>
+          </>
+        ) : (
+          <span>No value saved</span>
+        )}
+        <span>
+          savedUserName:{" "}
+          {data.savedUserName ? data.savedUserName : "No value saved"}
+        </span>
         <a
           className="App-link"
           href="https://relay.dev/docs/en/experimental/a-guided-tour-of-relay"

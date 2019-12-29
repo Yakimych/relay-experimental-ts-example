@@ -8,6 +8,7 @@ export type Divisions_data = {
             readonly node: {
                 readonly id: string;
                 readonly name: string;
+                readonly isDeleted: boolean;
             };
         } | null> | null;
     };
@@ -68,6 +69,18 @@ const node: ReaderFragment = {
                   "name": "name",
                   "args": null,
                   "storageKey": null
+                },
+                {
+                  "kind": "ClientExtension",
+                  "selections": [
+                    {
+                      "kind": "ScalarField",
+                      "alias": null,
+                      "name": "isDeleted",
+                      "args": null,
+                      "storageKey": null
+                    }
+                  ]
                 }
               ]
             }
@@ -77,5 +90,5 @@ const node: ReaderFragment = {
     }
   ]
 };
-(node as any).hash = 'aa63d8b2730c949dd30dd72498adf169';
+(node as any).hash = 'b2a20694030d5113197b3bf008093643';
 export default node;

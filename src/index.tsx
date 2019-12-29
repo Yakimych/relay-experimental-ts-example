@@ -4,6 +4,9 @@ import "./index.css";
 import App from "./App";
 import { RelayEnvironmentProvider } from "react-relay/hooks";
 import relayEnvironment from "./RelayEnvironment";
+import { createUserInfo } from "./globalState";
+
+createUserInfo();
 
 ReactDOM.render(
   <RelayEnvironmentProvider environment={relayEnvironment}>

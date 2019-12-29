@@ -1,0 +1,13 @@
+type UserInfo implements Node {
+  userName: String
+  age: Int
+}
+
+extend type Query {
+  savedUserName: String
+  savedUserInfo: UserInfo
+}
+
+extend type Division {
+  isDeleted: Boolean!
+}

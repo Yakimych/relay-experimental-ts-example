@@ -35,3 +35,7 @@
 .App-company-filter {
   display: flex;
 }
+
+.deleted {
+  text-decoration: line-through;
+}

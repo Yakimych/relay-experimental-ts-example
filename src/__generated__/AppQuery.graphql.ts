@@ -1,4 +1,5 @@
 /* tslint:disable */
+/* @relayHash b0bc282bcd19ef5d9aa5898b26a40562 */
 
 import { ConcreteRequest } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
@@ -7,6 +8,11 @@ export type AppQueryResponse = {
     readonly viewer: {
         readonly " $fragmentRefs": FragmentRefs<"UserFilter_data" | "UserList_data">;
     };
+    readonly savedUserInfo: {
+        readonly userName: string | null;
+        readonly age: number | null;
+    } | null;
+    readonly savedUserName: string | null;
 };
 export type AppQuery = {
     readonly response: AppQueryResponse;
@@ -60,6 +66,43 @@ fragment User_user on User {
 
 const node: ConcreteRequest = (function(){
 var v0 = {
+  "kind": "ClientExtension",
+  "selections": [
+    {
+      "kind": "LinkedField",
+      "alias": null,
+      "name": "savedUserInfo",
+      "storageKey": null,
+      "args": null,
+      "concreteType": "UserInfo",
+      "plural": false,
+      "selections": [
+        {
+          "kind": "ScalarField",
+          "alias": null,
+          "name": "userName",
+          "args": null,
+          "storageKey": null
+        },
+        {
+          "kind": "ScalarField",
+          "alias": null,
+          "name": "age",
+          "args": null,
+          "storageKey": null
+        }
+      ]
+    },
+    {
+      "kind": "ScalarField",
+      "alias": null,
+      "name": "savedUserName",
+      "args": null,
+      "storageKey": null
+    }
+  ]
+},
+v1 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "id",
@@ -95,7 +138,8 @@ return {
             "args": null
           }
         ]
-      }
+      },
+      (v0/*: any*/)
     ]
   },
   "operation": {
@@ -139,7 +183,7 @@ return {
                     "concreteType": "Role",
                     "plural": false,
                     "selections": [
-                      (v0/*: any*/),
+                      (v1/*: any*/),
                       {
                         "kind": "ScalarField",
                         "alias": null,
@@ -187,7 +231,7 @@ return {
                     "concreteType": "User",
                     "plural": false,
                     "selections": [
-                      (v0/*: any*/),
+                      (v1/*: any*/),
                       {
                         "kind": "ScalarField",
                         "alias": null,
@@ -208,9 +252,10 @@ return {
               }
             ]
           },
-          (v0/*: any*/)
+          (v1/*: any*/)
         ]
-      }
+      },
+      (v0/*: any*/)
     ]
   },
   "params": {
@@ -222,5 +267,5 @@ return {
   }
 };
 })();
-(node as any).hash = '3db53214bd46efe19cffbd337958a0e0';
+(node as any).hash = '86bdac2e43b60c52b804d486a498a459';
 export default node;

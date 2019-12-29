@@ -2,6 +2,7 @@ import graphql from "babel-plugin-relay/macro";
 import React from "react";
 import { useFragment } from "react-relay/hooks";
 import { Divisions_data$key } from "./__generated__/Divisions_data.graphql";
+import { updateDivisionIsDeleted } from "./globalState";
 
 const divisionsFragment = graphql`
   fragment Divisions_data on Viewer {
@@ -10,6 +11,7 @@ const divisionsFragment = graphql`
         node {
           id
           name
+          isDeleted
         }
       }
     }
@@ -29,7 +31,25 @@ export const Divisions: React.FC<Props> = props => {
       <h3>Divisions</h3>
 
       {data.map(division => (
-        <div key={division!.node.id}>{division!.node.name}</div>
+        <div
+          key={division!.node.id}
+          className={`${division!.node.isDeleted ? "deleted" : ""}`}
+        >
+          {division!.node.name}
+          {division!.node.isDeleted ? (
+            <button
+              onClick={_ => updateDivisionIsDeleted(division!.node.id, false)}
+            >
+              U
+            </button>
+          ) : (
+            <button
+              onClick={_ => updateDivisionIsDeleted(division!.node.id, true)}
+            >
+              X
+            </button>
+          )}
+        </div>
       ))}
     </div>
   );

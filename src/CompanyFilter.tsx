@@ -5,6 +5,7 @@ import { Divisions } from "./Divisions";
 import { CompanyFilterQuery } from "./__generated__/CompanyFilterQuery.graphql";
 import { UserFilter } from "./UserFilter";
 import { Roles } from "./Roles";
+import { updateGlobalState } from "./globalState";
 
 type Props = {
   className?: string;
@@ -27,7 +28,7 @@ export const CompanyFilter: React.FC<Props> = ({ className }) => {
   return (
     <div className={className}>
       <h2>Company filter</h2>
-
+      <button onClick={updateGlobalState}>Update global state</button>
       <div className="App-company-filter">
         <Divisions data={data.viewer} />
         <Roles data={data.viewer} />
