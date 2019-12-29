@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import logo from "./logo.svg";
 import { graphql } from "babel-plugin-relay/macro";
 import { useLazyLoadQuery } from "react-relay/hooks";
 import { AppQuery } from "./__generated__/AppQuery.graphql";
@@ -25,7 +24,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <span>Selected user: </span>
         <a
           className="App-link"
           href="https://relay.dev/docs/en/experimental/a-guided-tour-of-relay"
